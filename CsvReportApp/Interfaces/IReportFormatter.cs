@@ -17,4 +17,5 @@ namespace CsvReportApp.Interfaces
     {
         string Format(IReadOnlyList<T> data, ReportFormat format);
     }
+
 }

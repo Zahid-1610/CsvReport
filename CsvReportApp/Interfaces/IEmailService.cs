@@ -9,6 +9,6 @@ namespace CsvReportApp.Interfaces
 {
     public interface IEmailService
     {
-        Task<bool> SendAsync(EmailReport report, CancellationToken cancellationToken = default);
+        Task<bool> SendAsync(EmailReport report, string? attachmentPath, CancellationToken cancellationToken = default);
     }
 }

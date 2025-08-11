@@ -1,101 +1,101 @@
-Title,Author,PublicationYear
-Head First Design Patterns,Eric Freeman,2012
-The Pragmatic Programmer,Andrew Hunt,2002
-Working Effectively with Legacy Code,Michael Feathers,1997
-Design Patterns,Erich Gamma,1983
-Clean Code,Robert C. Martin,1993
-Design Patterns,Erich Gamma,1990
-The Pragmatic Programmer,Andrew Hunt,2021
-Working Effectively with Legacy Code,Michael Feathers,2020
-Head First Design Patterns,Eric Freeman,1987
-Head First Design Patterns,Eric Freeman,1981
-Domain-Driven Design,Eric Evans,2020
-The Pragmatic Programmer,Andrew Hunt,1998
-Domain-Driven Design,Eric Evans,2006
-Clean Code,Robert C. Martin,1993
-Design Patterns,Erich Gamma,2020
-Code Complete,Steve McConnell,1993
-Domain-Driven Design,Eric Evans,1997
-Working Effectively with Legacy Code,Michael Feathers,2001
-Code Complete,Steve McConnell,2024
-Design Patterns,Erich Gamma,2009
-The Pragmatic Programmer,Andrew Hunt,2014
-Head First Design Patterns,Eric Freeman,2013
-Working Effectively with Legacy Code,Michael Feathers,2012
-The Pragmatic Programmer,Andrew Hunt,2002
-The Clean Coder,Kent Beck,1997
-Domain-Driven Design,Eric Evans,2000
-Clean Code,Robert C. Martin,2020
-The Mythical Man-Month,Frederick P. Brooks Jr.,2006
-Refactoring,Martin Fowler,2010
-Head First Design Patterns,Eric Freeman,2022
-Code Complete,Steve McConnell,1990
-The Clean Coder,Kent Beck,1990
-Domain-Driven Design,Eric Evans,2021
-Refactoring,Martin Fowler,2009
-Clean Code,Robert C. Martin,2005
-Design Patterns,Erich Gamma,1981
-The Mythical Man-Month,Frederick P. Brooks Jr.,1990
-Refactoring,Martin Fowler,1996
-Head First Design Patterns,Eric Freeman,1982
-Design Patterns,Erich Gamma,2019
-Refactoring,Martin Fowler,1986
-Clean Code,Robert C. Martin,1998
-Domain-Driven Design,Eric Evans,1994
-Clean Code,Robert C. Martin,1987
-Code Complete,Steve McConnell,1991
-The Mythical Man-Month,Frederick P. Brooks Jr.,1981
-Code Complete,Steve McConnell,2018
-The Clean Coder,Kent Beck,2002
-The Mythical Man-Month,Frederick P. Brooks Jr.,1983
-Refactoring,Martin Fowler,1983
-The Clean Coder,Kent Beck,2020
-Design Patterns,Erich Gamma,1998
-Domain-Driven Design,Eric Evans,2001
-Head First Design Patterns,Eric Freeman,1998
-Design Patterns,Erich Gamma,1982
-Head First Design Patterns,Eric Freeman,2004
-Design Patterns,Erich Gamma,2016
-Design Patterns,Erich Gamma,1985
-Clean Code,Robert C. Martin,1989
-Refactoring,Martin Fowler,2024
-Head First Design Patterns,Eric Freeman,1998
-Code Complete,Steve McConnell,2016
-Refactoring,Martin Fowler,2012
-Domain-Driven Design,Eric Evans,1993
-Head First Design Patterns,Eric Freeman,2006
-Head First Design Patterns,Eric Freeman,1991
-The Mythical Man-Month,Frederick P. Brooks Jr.,2021
-Refactoring,Martin Fowler,1997
-The Pragmatic Programmer,Andrew Hunt,1998
-Head First Design Patterns,Eric Freeman,2005
-The Clean Coder,Kent Beck,1990
-Domain-Driven Design,Eric Evans,1990
-Refactoring,Martin Fowler,1989
-Code Complete,Steve McConnell,1988
-Refactoring,Martin Fowler,1988
-The Pragmatic Programmer,Andrew Hunt,2023
-Design Patterns,Erich Gamma,2011
-Clean Code,Robert C. Martin,2010
-The Pragmatic Programmer,Andrew Hunt,1987
-Head First Design Patterns,Eric Freeman,2001
-The Pragmatic Programmer,Andrew Hunt,2004
-The Mythical Man-Month,Frederick P. Brooks Jr.,2005
-Design Patterns,Erich Gamma,2000
-The Clean Coder,Kent Beck,2016
-Design Patterns,Erich Gamma,1989
-The Pragmatic Programmer,Andrew Hunt,2011
-Working Effectively with Legacy Code,Michael Feathers,2011
-Domain-Driven Design,Eric Evans,2021
-Working Effectively with Legacy Code,Michael Feathers,2007
-Head First Design Patterns,Eric Freeman,2024
-Clean Code,Robert C. Martin,1984
-The Clean Coder,Kent Beck,1997
-Domain-Driven Design,Eric Evans,1988
-Design Patterns,Erich Gamma,2016
-Domain-Driven Design,Eric Evans,2002
-Design Patterns,Erich Gamma,1981
-Clean Code,Robert C. Martin,1995
-Code Complete,Steve McConnell,1983
-Refactoring,Martin Fowler,2023
-The Clean Coder,Kent Beck,1997
+Title,Author,PublicationYear,Publisher,YearPublished
+Head First Design Patterns,Eric Freeman,2012,Oxford Press,2004
+The Pragmatic Programmer,Andrew Hunt,2002,HarperCollins,2002
+Working Effectively with Legacy Code,Michael Feathers,1997,Macmillan,2013
+Design Patterns,Erich Gamma,1983,Penguin,1997
+Clean Code,Robert C. Martin,1993,Oxford Press,2002
+Design Patterns,Erich Gamma,1990,Oxford Press,1993
+The Pragmatic Programmer,Andrew Hunt,2021,Oxford Press,2021
+Working Effectively with Legacy Code,Michael Feathers,2020,Oxford Press,1995
+Head First Design Patterns,Eric Freeman,1987,HarperCollins,2001
+Head First Design Patterns,Eric Freeman,1981,Macmillan,2002
+Domain-Driven Design,Eric Evans,2020,Random House,1994
+The Pragmatic Programmer,Andrew Hunt,1998,Random House,1993
+Domain-Driven Design,Eric Evans,2006,Random House,2020
+Clean Code,Robert C. Martin,1993,Macmillan,2003
+Design Patterns,Erich Gamma,2020,Oxford Press,2004
+Code Complete,Steve McConnell,1993,HarperCollins,2021
+Domain-Driven Design,Eric Evans,1997,Oxford Press,2019
+Working Effectively with Legacy Code,Michael Feathers,2001,Random House,2018
+Code Complete,Steve McConnell,2024,Oxford Press,1996
+Design Patterns,Erich Gamma,2009,Penguin,2003
+The Pragmatic Programmer,Andrew Hunt,2014,HarperCollins,2017
+Head First Design Patterns,Eric Freeman,2013,HarperCollins,1991
+Working Effectively with Legacy Code,Michael Feathers,2012,Random House,1999
+The Pragmatic Programmer,Andrew Hunt,2002,HarperCollins,1992
+The Clean Coder,Kent Beck,1997,Random House,1995
+Domain-Driven Design,Eric Evans,2000,Oxford Press,2016
+Clean Code,Robert C. Martin,2020,Oxford Press,2022
+The Mythical Man-Month,Frederick P. Brooks Jr.,2006,Oxford Press,2023
+Refactoring,Martin Fowler,2010,Macmillan,1991
+Head First Design Patterns,Eric Freeman,2022,HarperCollins,2023
+Code Complete,Steve McConnell,1990,Penguin,2009
+The Clean Coder,Kent Beck,1990,Random House,2017
+Domain-Driven Design,Eric Evans,2021,HarperCollins,2011
+Refactoring,Martin Fowler,2009,Random House,2022
+Clean Code,Robert C. Martin,2005,Macmillan,1991
+Design Patterns,Erich Gamma,1981,Random House,2015
+The Mythical Man-Month,Frederick P. Brooks Jr.,1990,Penguin,2023
+Refactoring,Martin Fowler,1996,Macmillan,2006
+Head First Design Patterns,Eric Freeman,1982,HarperCollins,2009
+Design Patterns,Erich Gamma,2019,Penguin,2015
+Refactoring,Martin Fowler,1986,Oxford Press,2018
+Clean Code,Robert C. Martin,1998,Random House,1990
+Domain-Driven Design,Eric Evans,1994,Macmillan,2017
+Clean Code,Robert C. Martin,1987,HarperCollins,1990
+Code Complete,Steve McConnell,1991,Oxford Press,2007
+The Mythical Man-Month,Frederick P. Brooks Jr.,1981,Penguin,2016
+Code Complete,Steve McConnell,2018,HarperCollins,1995
+The Clean Coder,Kent Beck,2002,Penguin,2012
+The Mythical Man-Month,Frederick P. Brooks Jr.,1983,Random House,2008
+Refactoring,Martin Fowler,1983,Penguin,2006
+The Clean Coder,Kent Beck,2020,Random House,2022
+Design Patterns,Erich Gamma,1998,Macmillan,1996
+Domain-Driven Design,Eric Evans,2001,HarperCollins,1992
+Head First Design Patterns,Eric Freeman,1998,HarperCollins,2001
+Design Patterns,Erich Gamma,1982,Random House,2024
+Head First Design Patterns,Eric Freeman,2004,Random House,1999
+Design Patterns,Erich Gamma,2016,Penguin,2003
+Design Patterns,Erich Gamma,1985,Macmillan,1999
+Clean Code,Robert C. Martin,1989,Penguin,2022
+Refactoring,Martin Fowler,2024,Penguin,2017
+Head First Design Patterns,Eric Freeman,1998,Macmillan,1994
+Code Complete,Steve McConnell,2016,Penguin,1995
+Refactoring,Martin Fowler,2012,Penguin,2022
+Domain-Driven Design,Eric Evans,1993,Oxford Press,2019
+Head First Design Patterns,Eric Freeman,2006,Penguin,2021
+Head First Design Patterns,Eric Freeman,1991,HarperCollins,2006
+The Mythical Man-Month,Frederick P. Brooks Jr.,2021,Macmillan,2015
+Refactoring,Martin Fowler,1997,Random House,2000
+The Pragmatic Programmer,Andrew Hunt,1998,Penguin,2003
+Head First Design Patterns,Eric Freeman,2005,HarperCollins,2019
+The Clean Coder,Kent Beck,1990,Penguin,2002
+Domain-Driven Design,Eric Evans,1990,Macmillan,1995
+Refactoring,Martin Fowler,1989,Macmillan,2003
+Code Complete,Steve McConnell,1988,Macmillan,2010
+Refactoring,Martin Fowler,1988,Macmillan,2013
+The Pragmatic Programmer,Andrew Hunt,2023,Random House,2022
+Design Patterns,Erich Gamma,2011,Macmillan,2004
+Clean Code,Robert C. Martin,2010,Penguin,2019
+The Pragmatic Programmer,Andrew Hunt,1987,HarperCollins,1994
+Head First Design Patterns,Eric Freeman,2001,Macmillan,2024
+The Pragmatic Programmer,Andrew Hunt,2004,Oxford Press,2009
+The Mythical Man-Month,Frederick P. Brooks Jr.,2005,HarperCollins,2009
+Design Patterns,Erich Gamma,2000,HarperCollins,1994
+The Clean Coder,Kent Beck,2016,Oxford Press,2018
+Design Patterns,Erich Gamma,1989,Penguin,2014
+The Pragmatic Programmer,Andrew Hunt,2011,HarperCollins,2011
+Working Effectively with Legacy Code,Michael Feathers,2011,Macmillan,2003
+Domain-Driven Design,Eric Evans,2021,Macmillan,1994
+Working Effectively with Legacy Code,Michael Feathers,2007,Macmillan,2022
+Head First Design Patterns,Eric Freeman,2024,Random House,2007
+Clean Code,Robert C. Martin,1984,Penguin,1994
+The Clean Coder,Kent Beck,1997,Oxford Press,2016
+Domain-Driven Design,Eric Evans,1988,Oxford Press,2018
+Design Patterns,Erich Gamma,2016,Random House,2013
+Domain-Driven Design,Eric Evans,2002,Macmillan,1994
+Design Patterns,Erich Gamma,1981,Random House,2015
+Clean Code,Robert C. Martin,1995,Macmillan,2024
+Code Complete,Steve McConnell,1983,Oxford Press,1997
+Refactoring,Martin Fowler,2023,Macmillan,2015
+The Clean Coder,Kent Beck,1997,Penguin,2015

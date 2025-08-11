@@ -12,9 +12,23 @@ public class Program
     public static async Task Main(string[] args)
     {
         var host = CreateHostBuilder(args).Build();
-
         var app = host.Services.GetRequiredService<IReportApplication>();
-        await app.RunAsync();
+
+        while (true)
+        {
+            await app.RunAsync();
+
+            Console.WriteLine("\nDo you want to run again? (y/n): ");
+            var input = Console.ReadLine()?.Trim().ToLowerInvariant();
+
+            if (input == "n" || input == "no" || input == "q" || input == "quit")
+            {
+                Console.WriteLine("Exiting application. Goodbye!");
+                break;
+            }
+
+            Console.Clear(); // Optional: clears console before next run
+        }
     }
 
     private static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -26,17 +40,14 @@ public class Program
             })
             .ConfigureServices((context, services) =>
             {
-                // Configuration bindings
                 services.Configure<EmailSettings>(context.Configuration.GetSection("EmailSettings"));
                 services.Configure<AppSettings>(context.Configuration.GetSection("AppSettings"));
 
-                // Service registrations
                 services.AddScoped<ICsvReader<Book>, BookCsvReader>();
                 services.AddScoped<IReportFormatter<Book>, BookReportFormatter>();
                 services.AddScoped<IEmailService, SmtpEmailService>();
                 services.AddScoped<IReportApplication, ReportApplication>();
 
-                // Logging
                 services.AddLogging(builder =>
                 {
                     builder.AddConsole();

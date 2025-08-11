@@ -27,19 +27,17 @@ namespace CsvReportApp.Services
             ValidateEmailSettings();
         }
 
-        public async Task<bool> SendAsync(EmailReport report, CancellationToken cancellationToken = default)
+        public async Task<bool> SendAsync(EmailReport report, string? attachmentPath, CancellationToken cancellationToken = default)
         {
             ArgumentNullException.ThrowIfNull(report);
 
             try
             {
                 using var client = CreateSmtpClient();
-                using var mailMessage = CreateMailMessage(report);
+                using var mailMessage = CreateMailMessage(report, attachmentPath);
 
                 _logger.LogInformation("Sending email to {Recipient}", report.ToEmail);
-
                 await client.SendMailAsync(mailMessage, cancellationToken);
-
                 _logger.LogInformation("Email sent successfully to {Recipient}", report.ToEmail);
                 return true;
             }
@@ -63,7 +61,7 @@ namespace CsvReportApp.Services
             return client;
         }
 
-        private MailMessage CreateMailMessage(EmailReport report)
+        private MailMessage CreateMailMessage(EmailReport report, string? attachmentPath)
         {
             var mail = new MailMessage
             {
@@ -75,6 +73,16 @@ namespace CsvReportApp.Services
             };
 
             mail.To.Add(new MailAddress(report.ToEmail));
+
+            if (!string.IsNullOrWhiteSpace(attachmentPath) && File.Exists(attachmentPath))
+            {
+                mail.Attachments.Add(new Attachment(attachmentPath));
+                _logger.LogInformation("Attached file: {File}", attachmentPath);
+            }
+            else
+            {
+                _logger.LogWarning("CSV attachment file not found: {File}", attachmentPath);
+            }
 
             return mail;
         }
@@ -95,4 +103,3 @@ namespace CsvReportApp.Services
         }
     }
 }
-

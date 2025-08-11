@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace CsvReportApp.Configuration
 {
-    public sealed class AppSettings
-    {
-        public const string SectionName = "AppSettings";
+   
+        public sealed class AppSettings
+        {
+            public const string SectionName = "AppSettings";
 
-        public string CsvFilePath { get; init; } = "./Books/Books.xlsx";
-        public string DefaultOutputFormat { get; set; } = "PlainText";
+            public string CsvFilePath { get; init; } = "./Books/Books.xlsx";
+            public string DefaultOutputFormat { get; set; } = "PlainText";
 
-        public bool AutoSendEmail { get; set; } = false;
+            public bool AutoSendEmail { get; set; } = false;
+        }
     }
-}
+

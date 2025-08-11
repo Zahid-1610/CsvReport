@@ -25,7 +25,7 @@ namespace CsvReportApp.Services
 
 
         public ReportApplication(
-              ICsvReader<Book> csvReader,
+        ICsvReader<Book> csvReader,
         IReportFormatter<Book> reportFormatter,
         IEmailService emailService,
         IOptions<AppSettings> appSettings,
@@ -120,27 +120,53 @@ namespace CsvReportApp.Services
 
         private async Task SendEmailReport(string content, bool isHtml, CancellationToken cancellationToken)
         {
+            var toEmail = _emailSettings.RecipientEmail;
+
+            if (string.IsNullOrWhiteSpace(toEmail))
+            {
+                Console.WriteLine("\nEnter recipient email address:");
+                toEmail = Console.ReadLine()?.Trim();
+
+                if (string.IsNullOrWhiteSpace(toEmail) || !toEmail.Contains("@"))
+                {
+                    Console.WriteLine("Invalid email address. Email not sent.");
+                    _logger.LogWarning("Invalid email input from user.");
+                    return;
+                }
+            }
+            else
+            {
+                
+                Console.WriteLine($"\nSend to default recipient: {toEmail}? (y/n):");
+                var input = Console.ReadLine()?.Trim().ToLowerInvariant();
+                if (input == "n" || input == "no")
+                {
+                    Console.WriteLine("Enter recipient email address:");
+                    var userInput = Console.ReadLine()?.Trim();
+                    if (!string.IsNullOrWhiteSpace(userInput) && userInput.Contains("@"))
+                    {
+                        toEmail = userInput;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid email. Email not sent.");
+                        return;
+                    }
+                }
+            }
+
             var report = new EmailReport
             {
                 Subject = $"Book Report - {DateTime.Now:yyyy-MM-dd}",
                 Body = content,
                 IsHtml = isHtml,
-                ToEmail = _emailSettings.RecipientEmail,
+                ToEmail = toEmail,
                 FromEmail = _emailSettings.SenderEmail
             };
 
             Console.WriteLine("Sending email...");
+            await _emailService.SendAsync(report, _appSettings.CsvFilePath, cancellationToken);
 
-            var success = await _emailService.SendAsync(report, cancellationToken);
-
-            if (success)
-            {
-                Console.WriteLine("Email sent successfully!");
-            }
-            else
-            {
-                Console.WriteLine("Failed to send email. Check logs for details.");
-            }
         }
     }
 }

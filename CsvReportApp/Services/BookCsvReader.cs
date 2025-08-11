@@ -3,6 +3,7 @@ using CsvReportApp.Models;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,87 +22,78 @@ namespace CsvReportApp.Services
 
         public async Task<IReadOnlyList<Book>> ReadAsync(string filePath, CancellationToken cancellationToken = default)
         {
-            ArgumentException.ThrowIfNullOrWhiteSpace(filePath);
-
             if (!File.Exists(filePath))
             {
-                _logger.LogError("Excell file not found: {FilePath}", filePath);
-                throw new FileNotFoundException($"CSV file not found: {filePath}");
+                _logger.LogError("CSV file not found at path: {Path}", filePath);
+                return Array.Empty<Book>();
             }
 
+            var books = new List<Book>();
 
             try
             {
-                var lines = await File.ReadAllLinesAsync(filePath, cancellationToken);
-                var books = new List<Book>();
+                using var reader = new StreamReader(filePath);
+                string? line;
+                bool isFirstLine = true;
+                string? headerLine = await reader.ReadLineAsync();
 
-                if (lines.Length <= 1)
+                while ((line = await reader.ReadLineAsync()) != null)
                 {
-                    _logger.LogWarning("Excell file is empty or contains only headers");
-                    return books.AsReadOnly();
-                }
+                    cancellationToken.ThrowIfCancellationRequested();
 
-                var dateLines = lines.Skip(1);
-                var lineNumber = 2;
-
-                foreach (var line in dateLines)
-                {
-                    if (string.IsNullOrWhiteSpace(line))
+                    // Skip header
+                    if (isFirstLine)
                     {
-                        lineNumber++;
+                        isFirstLine = false;
                         continue;
                     }
 
-                    try
+                    if (headerLine == null)
                     {
-                        var book = ParseBookFromLine(line);
-                        if (book.IsValid())
-                        {
-                            books.Add(book);
-                        }
-                        else
-                        {
-                            _logger.LogWarning("Invalid book data at line {LineNumber}: {Line}", lineNumber, line);
-                        }
-
-                    }
-                    catch (Exception ex)
-                    {
-                        _logger.LogError(ex, "Error parsing line {LineNumber}: {Line}", lineNumber, line);
+                        _logger.LogWarning("CSV file is empty.");
+                        return books;
                     }
 
-                    lineNumber++;
+                    var headers = ParseCsvLine(headerLine);
+
+                    var parts = ParseCsvLine(line);
+
+                    if (parts.Length < 3)
+                    {
+                        _logger.LogWarning("Skipping invalid row: {Row}", line);
+                        continue;
+                    }
+
+                    var book = new Book
+                    {
+                        Title = parts[0].Trim(),
+                        Author = parts[1].Trim(),
+                        PublicationYear = TryParseYear(parts[2].Trim())
+                    };
+
+                    for (int i = 3; i < parts.Length && i < headers.Length; i++)
+                    {
+                        book.ExtraFields[headers[i]] = parts[i].Trim();
+                    }
+
+                    if (book.IsValid())
+                    {
+                        books.Add(book);
+                    }
+                    else
+                    {
+                        _logger.LogWarning("Skipping invalid book entry: {Book}", book);
+                    }
                 }
-
-                _logger.LogInformation("Successfully parsed {Count} books from CSV", books.Count);
-                return books.AsReadOnly();
-
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Error reading CSV file: {FilePath}", filePath);
-                throw new InvalidOperationException($"Failed to read CSV file: {filePath}", ex);
+                _logger.LogError(ex, "Failed to read or parse CSV file");
             }
 
+            return books;
         }
-
-        private static Book ParseBookFromLine(string line)
-        {
-            var fields = ParseCsvLine(line);
-
-            if (fields.Length < 3)
-            {
-                throw new InvalidOperationException($"Invalid CSV line format. Expected 3 fields, got {fields.Length}");
-            }
-
-            return new Book
-            {
-                Title = fields[0].Trim(' ', '"'),
-                Author = fields[1].Trim(' ', '"'),
-                PublicationYear = int.TryParse(fields[2].Trim(' ', '"'), out var year) ? year : 0,
-            };
-        }
-
+       
         private static string[] ParseCsvLine(string line)
         {
             var fields = new List<string>();
@@ -144,6 +136,12 @@ namespace CsvReportApp.Services
             fields.Add(new string(currentField.ToArray()));
             return fields.ToArray();
         }
-
+        
+        private int TryParseYear(string input)
+        {
+            return int.TryParse(input, NumberStyles.Integer, CultureInfo.InvariantCulture, out var year)
+                ? year
+                : 0;
+        }
     }
 }
